@@ -4,6 +4,7 @@ import { animalController } from './animal.controller'
 const router = express.Router()
 
 router.post('/create', animalController.createAnimal)
+router.get('/all', animalController.getAllAnimal)
 
 
 

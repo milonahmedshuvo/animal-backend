@@ -22,6 +22,35 @@ const createAnimal = async (req:Request, res:Response, next:NextFunction) => {
 }
 
 
+
+
+
+const getAllAnimal = async (req:Request, res:Response, next:NextFunction) => {
+
+   try{
+    
+   const query = req.query
+
+    const result = await animalService.getAllAnimalFromDB(query)
+
+
+    res.status(200).json({
+       success: true,
+       message: 'animal retrived successfull',
+       data: result
+    })
+
+   }catch(err){
+   //    console(err) 
+      next(err)
+   }
+}
+
+
+
+
+
 export const animalController = {
-     createAnimal
+     createAnimal,
+     getAllAnimal
 }
